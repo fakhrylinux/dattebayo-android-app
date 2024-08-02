@@ -33,7 +33,6 @@ class DetailFragment : Fragment() {
 
         binding?.ivImage?.load(character.images[0])
         binding?.tvName?.text = character.name
-//        binding?.tvTitles?.text = character.titles
         binding?.tvJutsu?.text = character.jutsu.joinToString(separator = ",\n")
     }
 }

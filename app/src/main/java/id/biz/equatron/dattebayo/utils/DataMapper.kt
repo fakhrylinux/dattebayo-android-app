@@ -11,7 +11,6 @@ object DataMapper {
             val character = UiCharacter(
                 id = it.id,
                 name = it.name,
-//                titles = it.titles,
                 images = it.images,
                 jutsu = it.jutsu,
             )

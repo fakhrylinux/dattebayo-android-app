@@ -7,7 +7,6 @@ import kotlinx.parcelize.Parcelize
 data class UiCharacter(
     val id: Int,
     val name: String,
-//    val titles: List<String>,
     val images: List<String>,
     val jutsu: List<String>,
 ): Parcelable

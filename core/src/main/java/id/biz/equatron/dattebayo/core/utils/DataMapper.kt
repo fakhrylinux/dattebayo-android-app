@@ -14,7 +14,6 @@ object DataMapper {
                 name = it.name,
                 images = it.images,
                 jutsu = it.jutsu,
-//                titles = it.personal.titles
             )
             characterList.add(character)
         }
@@ -27,7 +26,6 @@ object DataMapper {
                 id = it.characterId,
                 name = it.name,
                 images = it.images,
-//                titles = it.titles,
                 jutsu = it.jutsu,
             )
         }
@@ -37,8 +35,5 @@ object DataMapper {
         name = input.name,
         images = input.images,
         jutsu = input.jutsu,
-//        titles = input.titles,
     )
-
-
 }

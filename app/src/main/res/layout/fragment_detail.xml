@@ -32,22 +32,13 @@
             tools:text="@string/tv_name" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_titles"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="11sp"
-            app:layout_constraintTop_toBottomOf="@id/tv_name"
-            tools:text="@string/tv_titles" />
-
-        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_jutsu_header"
             style="@style/TextAppearance.Material3.HeadlineSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_titles"
-            tools:text="Jutsu" />
+            android:text="@string/jutsu_header"
+            app:layout_constraintTop_toBottomOf="@id/tv_name" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_jutsu"

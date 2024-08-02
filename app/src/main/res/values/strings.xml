@@ -5,15 +5,7 @@
     <string name="character_name">Uzumaki Naruto</string>
     <string name="no_data">No Data</string>
     <string name="tv_name">Uzumaki Naruto</string>
-    <string name="tv_titles">"うずまきナルトUzumakiNaruto",\n
-"the-off,NumberOneUnpredictable,NoisyNinja(目立ちたがり屋で意外性no.1のドタバタ忍者,MedachitagariyaDeIgaiseiNanbāWanNoDotabataNinja,EnglishTv:NumberOneHyperactive,KnuckleheadNinja)",\n
-"childOfTheProphecy(予言の子,YogenNoKo)",\n
-"saviourOfThisWorld(この世の救世主,KonoYoNoKyūseishu)",\n
-"heroOfTheHiddenLeaf(木ノ葉隠れの英雄,KonohagakureNoEiyū,LiterallyMeaning:HeroOfTheHiddenTreeLeaves)",\n
-"boyOfMiracles(奇跡を起こす少年,KisekiOOkosuShōnen)",\n
-"konoha'sOrangeHokage(木ノ葉のオレンジ火影,KonohaNoOrenjiHokage,LiterallyMeaning:TreeLeaves'OrangeFireShadow)",\n
-"seventhHokage(七代目火影,NanadaimeHokage,LiterallyMeaning:SeventhFireShadow)",\n
-"fox(狐,Kitsune)"</string>
+    <string name="jutsu_header">Jutsu</string>
     <string name="tv_jutsu">
         "All Directions Shuriken",\n
 "Baryon Mode",\n

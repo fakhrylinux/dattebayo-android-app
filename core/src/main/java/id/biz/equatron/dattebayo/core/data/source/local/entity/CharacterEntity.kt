@@ -12,8 +12,6 @@ data class CharacterEntity(
 
     var name: String,
 
-//    var titles: List<String>,
-
     var images: List<String>,
 
     var jutsu: List<String>,

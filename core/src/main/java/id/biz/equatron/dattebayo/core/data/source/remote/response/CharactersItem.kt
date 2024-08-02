@@ -4,14 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 data class CharactersItem(
 
-//	@field:SerializedName("debut")
-//	val debut: Debut,
-//
     @field:SerializedName("images")
     val images: List<String>,
-//
-//	@field:SerializedName("voiceActors")
-//	val voiceActors: VoiceActors,
 
     @field:SerializedName("jutsu")
     val jutsu: List<String>,
@@ -24,21 +18,8 @@ data class CharactersItem(
 
     @field:SerializedName("id")
     val id: Int,
-
-//	@field:SerializedName("family")
-//	val family: Family,
-//
-//	@field:SerializedName("natureType")
-//	val natureType: List<String>,
-//
-//	@field:SerializedName("rank")
-//	val rank: Rank,
-//
-//	@field:SerializedName("tools")
-//	val tools: List<String>,
-//
-//	@field:SerializedName("uniqueTraits")
-//	val uniqueTraits: List<String>
+	@field:SerializedName("natureType")
+	val natureType: List<String>,
 )
 
 data class Personal(
@@ -61,20 +42,11 @@ data class Personal(
     @field:SerializedName("clan")
     val clan: String,
 
-    @field:SerializedName("weight")
-    val weight: Weight,
-
     @field:SerializedName("team")
     val team: List<String>,
 
     @field:SerializedName("bloodType")
     val bloodType: String,
-
-    @field:SerializedName("age")
-    val age: Age,
-
-    @field:SerializedName("height")
-    val height: Height,
 
     @field:SerializedName("kekkeiGenkai")
     val kekkeiGenkai: List<String>,

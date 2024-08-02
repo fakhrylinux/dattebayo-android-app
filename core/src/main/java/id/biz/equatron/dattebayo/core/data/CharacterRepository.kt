@@ -26,7 +26,6 @@ class CharacterRepository(
 
             override suspend fun createCall(): Flow<ApiResponse<List<CharactersItem>>> =
                 remoteDataSource.getAllCharacter()
-//                    .map Do mapper here
 
             override suspend fun saveCallResult(data: List<CharactersItem>) {
                 val characterList = DataMapper.mapResponseToEntities(data)
@@ -50,22 +49,4 @@ class CharacterRepository(
             localDataSource.setFavoriteCharacter(characterEntity, state)
         }
     }
-
-//    override fun getCharacter(id: Int): Flow<Character> =
-//        localDataSource.getCharacter(id).map {
-//            Character(
-//                id = it.characterId,
-//                name = it.name,
-//                images = it.images,
-//                jutsu = it.jutsu,
-//            )
-//        }
-//            .map {
-//            Character(
-//                id = it.characterId,
-//                name = it.name,
-//                images = it.images,
-//                jutsu = it.jutsu,
-//            )
-//        }
 }
