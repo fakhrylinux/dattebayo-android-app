@@ -18,7 +18,7 @@
         android:id="@+id/detailFragment"
         android:name="id.biz.equatron.dattebayo.detail.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" >
+        tools:layout="@layout/fragment_detail">
         <action
             android:id="@+id/action_detailFragment_to_characterFragment"
             app:destination="@id/characterFragment"
@@ -28,5 +28,8 @@
         <argument
             android:name="character"
             app:argType="id.biz.equatron.dattebayo.core.ui.model.UiCharacter" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="dattebayo://detail/{character}" />
     </fragment>
 </navigation>

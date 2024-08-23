@@ -3,7 +3,6 @@ package id.biz.equatron.dattebayo.character
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,8 +13,8 @@ import id.biz.equatron.dattebayo.R
 import id.biz.equatron.dattebayo.core.data.Resource
 import id.biz.equatron.dattebayo.core.ui.adapter.CharacterAdapter
 import id.biz.equatron.dattebayo.core.ui.model.UiCharacter
-import id.biz.equatron.dattebayo.databinding.FragmentCharacterBinding
 import id.biz.equatron.dattebayo.core.utils.DataMapper
+import id.biz.equatron.dattebayo.databinding.FragmentCharacterBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CharacterFragment : Fragment() {
@@ -57,7 +56,6 @@ class CharacterFragment : Fragment() {
                         is Resource.Loading -> binding?.progressCircular?.visibility = View.VISIBLE
                         is Resource.Success -> {
                             binding?.progressCircular?.visibility = View.GONE
-                            Log.d("CharacterFragment", "character.data: ${character.data}")
                             val uiData = character.data?.let { DataMapper.mapDomainToUiModel(it) }
                             characterAdapter.submitList(uiData)
                         }

@@ -8,12 +8,12 @@ apply("../shared_dependency.gradle")
 
 android {
     namespace = "id.biz.equatron.dattebayo"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "id.biz.equatron.dattebayo"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -44,6 +44,4 @@ android {
 
 dependencies {
     implementation(project(":core"))
-//    implementation(project())
-//    implementation project(":core")
 }

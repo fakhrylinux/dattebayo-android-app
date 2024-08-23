@@ -5,7 +5,7 @@ plugins {
 apply("../shared_dependency.gradle")
 android {
     namespace = "id.biz.equatron.dattebayo.favorite"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 24

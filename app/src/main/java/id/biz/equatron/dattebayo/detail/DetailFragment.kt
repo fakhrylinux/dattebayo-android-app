@@ -1,7 +1,6 @@
 package id.biz.equatron.dattebayo.detail
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,7 +42,6 @@ class DetailFragment : Fragment() {
 
         var statusFavorite = character.isFavorite
         setStatusFavorite(statusFavorite)
-        Log.d("DetailFragment", statusFavorite.toString())
         binding?.fabFavorite?.setOnClickListener {
             statusFavorite = !statusFavorite
             detailViewModel.setFavoriteCharacter(character, statusFavorite)
