@@ -16,7 +16,6 @@ data class CharacterEntity(
 
     var jutsu: List<String>,
 
-
     @ColumnInfo(name = "is_favorite")
     var isFavorite: Boolean = false
 )

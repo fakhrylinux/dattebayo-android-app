@@ -1,5 +1,7 @@
 package id.biz.equatron.dattebayo.character
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,11 +10,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import id.biz.equatron.dattebayo.R
 import id.biz.equatron.dattebayo.core.data.Resource
 import id.biz.equatron.dattebayo.core.ui.adapter.CharacterAdapter
 import id.biz.equatron.dattebayo.core.ui.model.UiCharacter
 import id.biz.equatron.dattebayo.databinding.FragmentCharacterBinding
-import id.biz.equatron.dattebayo.utils.DataMapper
+import id.biz.equatron.dattebayo.core.utils.DataMapper
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CharacterFragment : Fragment() {
@@ -32,6 +35,8 @@ class CharacterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setupMenu()
 
         if (activity != null) {
             val characterAdapter = CharacterAdapter()
@@ -70,6 +75,18 @@ class CharacterFragment : Fragment() {
                 this?.layoutManager = LinearLayoutManager(context)
                 this?.adapter = characterAdapter
             }
+        }
+    }
+
+    private fun setupMenu() {
+        binding?.topAppBar?.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.favorite -> {
+                    val uri = Uri.parse("dattebayo://favorite")
+                    startActivity(Intent(Intent.ACTION_VIEW, uri))
+                }
+            }
+            true
         }
     }
 

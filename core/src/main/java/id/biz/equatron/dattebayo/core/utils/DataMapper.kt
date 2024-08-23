@@ -3,6 +3,7 @@ package id.biz.equatron.dattebayo.core.utils
 import id.biz.equatron.dattebayo.core.data.source.local.entity.CharacterEntity
 import id.biz.equatron.dattebayo.core.data.source.remote.response.CharactersItem
 import id.biz.equatron.dattebayo.core.domain.model.Character
+import id.biz.equatron.dattebayo.core.ui.model.UiCharacter
 
 object DataMapper {
 
@@ -14,6 +15,7 @@ object DataMapper {
                 name = it.name,
                 images = it.images,
                 jutsu = it.jutsu,
+                isFavorite = false,
             )
             characterList.add(character)
         }
@@ -27,6 +29,7 @@ object DataMapper {
                 name = it.name,
                 images = it.images,
                 jutsu = it.jutsu,
+                isFavorite = it.isFavorite
             )
         }
 
@@ -35,5 +38,29 @@ object DataMapper {
         name = input.name,
         images = input.images,
         jutsu = input.jutsu,
+        isFavorite = input.isFavorite,
+    )
+
+    fun mapDomainToUiModel(input: List<Character>): List<UiCharacter> {
+        val characterList = ArrayList<UiCharacter>()
+        input.map {
+            val character = UiCharacter(
+                id = it.id,
+                name = it.name,
+                images = it.images,
+                jutsu = it.jutsu,
+                isFavorite = it.isFavorite,
+            )
+            characterList.add(character)
+        }
+        return characterList
+    }
+
+    fun mapUiToDomain(input: UiCharacter) = Character(
+        id = input.id,
+        name = input.name,
+        images = input.images,
+        jutsu = input.jutsu,
+        isFavorite = input.isFavorite
     )
 }

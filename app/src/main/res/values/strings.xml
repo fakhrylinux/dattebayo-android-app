@@ -26,4 +26,7 @@
 "Frog Kata",\n
 "Frog Strike",
     </string>
+    <string name="title_favorite">Favorite</string>
+    <string name="favorite">favorite</string>
+    <string name="favorite_button">Favorite Button</string>
 </resources>

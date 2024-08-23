@@ -1,22 +1,14 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.dynamic.feature)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id ("androidx.navigation.safeargs.kotlin")
 }
-
 apply("../shared_dependency.gradle")
-
 android {
-    namespace = "id.biz.equatron.dattebayo"
+    namespace = "id.biz.equatron.dattebayo.favorite"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "id.biz.equatron.dattebayo"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -39,11 +31,18 @@ android {
     buildFeatures {
         viewBinding = true
     }
-    dynamicFeatures += setOf(":favorite")
 }
 
 dependencies {
     implementation(project(":core"))
-//    implementation(project())
-//    implementation project(":core")
+    implementation(project(":app"))
+//    implementation(libs.androidx.appcompat)
+//    implementation(libs.material)
+//    implementation(libs.androidx.activity)
+//    implementation(libs.androidx.constraintlayout)
+//    implementation(libs.androidx.core.ktx)
+//    implementation(libs.fragment.ktx)
+//    testImplementation(libs.junit)
+//    androidTestImplementation(libs.androidx.junit)
+//    androidTestImplementation(libs.androidx.espresso.core)
 }

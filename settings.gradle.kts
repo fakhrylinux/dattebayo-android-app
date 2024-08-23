@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "Dattebayo"
 include(":app")
 include(":core")
+include(":favorite")

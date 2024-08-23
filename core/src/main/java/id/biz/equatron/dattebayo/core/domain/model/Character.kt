@@ -5,4 +5,5 @@ data class Character(
     val name: String,
     val images: List<String>,
     val jutsu: List<String>,
+    val isFavorite: Boolean,
 )

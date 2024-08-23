@@ -9,4 +9,5 @@ data class UiCharacter(
     val name: String,
     val images: List<String>,
     val jutsu: List<String>,
+    val isFavorite: Boolean,
 ): Parcelable
