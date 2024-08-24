@@ -43,6 +43,7 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/iv_image"
+                android:contentDescription="@string/character_image"
                 android:layout_width="0dp"
                 android:layout_height="300dp"
                 app:layout_constraintBottom_toTopOf="@id/tv_name"

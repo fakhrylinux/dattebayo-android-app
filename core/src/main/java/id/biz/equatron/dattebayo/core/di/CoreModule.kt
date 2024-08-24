@@ -1,6 +1,7 @@
 package id.biz.equatron.dattebayo.core.di
 
 import androidx.room.Room
+import id.biz.equatron.dattebayo.core.BuildConfig
 import id.biz.equatron.dattebayo.core.data.CharacterRepository
 import id.biz.equatron.dattebayo.core.data.source.local.LocalDataSource
 import id.biz.equatron.dattebayo.core.data.source.local.room.CharacterDatabase
@@ -34,15 +35,22 @@ val databaseModule = module {
     }
 }
 
+val BASE_URL: String = BuildConfig.BASE_URL
+
 val networkModule = module {
     single {
-        val hostname = "dattebayo-api.onrender.com"
+//        val hostname = "dattebayo-api.onrender.com"
         val certificatePinner = CertificatePinner.Builder()
-            .add(hostname, "sha256/BMh9IOwlOFqSEHbPfWk50LL2QZvldSZ0aTgmlWwTW7g=")
-            .add(hostname, "sha256/eG3k7TO7g56kU0xKb7MSIv+mo98h1KHE8Gy0L/HMhMM=")
+            .add(BASE_URL, "sha256/BMh9IOwlOFqSEHbPfWk50LL2QZvldSZ0aTgmlWwTW7g=")
+            .add(BASE_URL, "sha256/eG3k7TO7g56kU0xKb7MSIv+mo98h1KHE8Gy0L/HMhMM=")
             .build()
+        val loggingInterceptor = if (BuildConfig.DEBUG) {
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        } else {
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
+        }
         OkHttpClient.Builder()
-            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+            .addInterceptor(loggingInterceptor)
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
             .certificatePinner(certificatePinner)
@@ -50,7 +58,7 @@ val networkModule = module {
     }
     single {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://dattebayo-api.onrender.com/")
+            .baseUrl("https://$BASE_URL/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(get())
             .build()

@@ -35,10 +35,12 @@ class DetailFragment : Fragment() {
     }
 
     private fun showDetailCharacter(character: UiCharacter) {
-        binding?.topAppBar?.title = character.name
-        binding?.ivImage?.load(character.images[0])
-        binding?.tvName?.text = character.name
-        binding?.tvJutsu?.text = character.jutsu.joinToString(separator = ",\n")
+        binding?.apply {
+            topAppBar.title = character.name
+            ivImage.load(character.images[0])
+            tvName.text = character.name
+            tvJutsu.text = character.jutsu.joinToString(separator = ",\n")
+        }
 
         var statusFavorite = character.isFavorite
         setStatusFavorite(statusFavorite)
