@@ -5,7 +5,9 @@ orbs:
  
 jobs:
   build:
-    executor: android/android
+    executor: android/android-machine
+    resource-class: large
+    tag: 2023.07.1
     steps:
       - checkout
       - run: java --version
