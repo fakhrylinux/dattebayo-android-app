@@ -35,11 +35,10 @@ val databaseModule = module {
     }
 }
 
-val BASE_URL: String = BuildConfig.BASE_URL
+const val BASE_URL: String = BuildConfig.BASE_URL
 
 val networkModule = module {
     single {
-//        val hostname = "dattebayo-api.onrender.com"
         val certificatePinner = CertificatePinner.Builder()
             .add(BASE_URL, "sha256/BMh9IOwlOFqSEHbPfWk50LL2QZvldSZ0aTgmlWwTW7g=")
             .add(BASE_URL, "sha256/eG3k7TO7g56kU0xKb7MSIv+mo98h1KHE8Gy0L/HMhMM=")
