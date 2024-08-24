@@ -19,4 +19,8 @@ dependencies {
 
     // LeakCanary
     debugImplementation(libs.leakcanary.android)
+
+    // SQL Cipher
+    implementation(libs.android.database.sqlcipher)
+    implementation(libs.androidx.sqlite.ktx)
 }

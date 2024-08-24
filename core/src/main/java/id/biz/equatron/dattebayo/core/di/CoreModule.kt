@@ -8,6 +8,8 @@ import id.biz.equatron.dattebayo.core.data.source.remote.RemoteDataSource
 import id.biz.equatron.dattebayo.core.data.source.remote.network.ApiService
 import id.biz.equatron.dattebayo.core.domain.repository.ICharacterRepository
 import id.biz.equatron.dattebayo.core.utils.AppExecutors
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -19,10 +21,15 @@ import java.util.concurrent.TimeUnit
 val databaseModule = module {
     factory { get<CharacterDatabase>().characterDao() }
     single {
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("equatron".toCharArray())
+        val factory = SupportFactory(passphrase)
         Room.databaseBuilder(
             androidContext(),
             CharacterDatabase::class.java, "dattebayo.db"
-        ).fallbackToDestructiveMigration().build()
+        )
+            .openHelperFactory(factory)
+            .fallbackToDestructiveMigration()
+            .build()
     }
 }
 
