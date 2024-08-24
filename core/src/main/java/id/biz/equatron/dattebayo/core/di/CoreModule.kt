@@ -10,6 +10,7 @@ import id.biz.equatron.dattebayo.core.domain.repository.ICharacterRepository
 import id.biz.equatron.dattebayo.core.utils.AppExecutors
 import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SupportFactory
+import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -35,10 +36,16 @@ val databaseModule = module {
 
 val networkModule = module {
     single {
+        val hostname = "dattebayo-api.onrender.com"
+        val certificatePinner = CertificatePinner.Builder()
+            .add(hostname, "sha256/BMh9IOwlOFqSEHbPfWk50LL2QZvldSZ0aTgmlWwTW7g=")
+            .add(hostname, "sha256/eG3k7TO7g56kU0xKb7MSIv+mo98h1KHE8Gy0L/HMhMM=")
+            .build()
         OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
+            .certificatePinner(certificatePinner)
             .build()
     }
     single {
