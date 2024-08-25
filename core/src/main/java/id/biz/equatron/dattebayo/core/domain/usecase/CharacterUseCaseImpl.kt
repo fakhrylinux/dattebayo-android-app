@@ -15,4 +15,7 @@ class CharacterUseCaseImpl(private val characterRepository: ICharacterRepository
 
     override fun setFavoriteCharacter(character: Character, state: Boolean) =
         characterRepository.setFavoriteCharacter(character, state)
+
+    override suspend fun getCharacter(characterId: Int): Character =
+        characterRepository.getCharacter(characterId)
 }

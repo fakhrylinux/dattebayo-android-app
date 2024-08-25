@@ -12,4 +12,6 @@ interface CharacterUseCase {
     fun getFavoriteCharacter(): Flow<List<Character>>
 
     fun setFavoriteCharacter(character: Character, state: Boolean)
+
+    suspend fun getCharacter(characterId: Int): Character
 }

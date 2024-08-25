@@ -44,7 +44,7 @@ class CharacterFragment : Fragment() {
                 override fun onItemClicked(character: UiCharacter) {
                     val direction =
                         CharacterFragmentDirections.actionCharacterFragmentToDetailFragment(
-                            character
+                            character.id.toString()
                         )
                     findNavController().navigate(direction)
                 }

@@ -28,5 +28,5 @@ interface CharacterDao {
     fun updateFavoriteCharacter(character: CharacterEntity)
 
     @Query("SELECT * FROM characters where id = :id")
-    fun getCharacter(id: Int): Flow<CharacterEntity>
+    suspend fun getCharacter(id: Int): CharacterEntity
 }

@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import coil.load
 import id.biz.equatron.dattebayo.R
 import id.biz.equatron.dattebayo.core.ui.model.UiCharacter
 import id.biz.equatron.dattebayo.databinding.FragmentDetailBinding
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailFragment : Fragment() {
@@ -29,9 +31,14 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val character = DetailFragmentArgs.fromBundle(arguments as Bundle).character
+        val characterId = arguments?.getString("characterId")?.toInt()
 
-        showDetailCharacter(character)
+        viewLifecycleOwner.lifecycleScope.launch {
+            val character = characterId?.let { detailViewModel.getCharacter(it) }
+            if (character != null) {
+                showDetailCharacter(character)
+            }
+        }
     }
 
     private fun showDetailCharacter(character: UiCharacter) {

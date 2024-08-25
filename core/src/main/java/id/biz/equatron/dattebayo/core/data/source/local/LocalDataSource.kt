@@ -17,4 +17,6 @@ class LocalDataSource(private val characterDao: CharacterDao) {
         character.isFavorite = newState
         characterDao.updateFavoriteCharacter(character)
     }
+
+    suspend fun getCharacterById(id: Int): CharacterEntity = characterDao.getCharacter(id)
 }

@@ -1,8 +1,9 @@
 package id.biz.equatron.dattebayo.favorite
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -41,7 +42,8 @@ class FavoriteActivity : AppCompatActivity() {
         val characterAdapter = CharacterAdapter()
         characterAdapter.setOnItemClickCallback(object : CharacterAdapter.OnItemClickCallback {
             override fun onItemClicked(character: UiCharacter) {
-                Toast.makeText(this@FavoriteActivity, character.name, Toast.LENGTH_SHORT).show()
+                val uri = Uri.parse("dattebayo://detail/${character.id}")
+                startActivity(Intent(Intent.ACTION_VIEW, uri))
             }
 
         })

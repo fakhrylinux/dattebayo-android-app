@@ -49,4 +49,7 @@ class CharacterRepository(
             localDataSource.setFavoriteCharacter(characterEntity, state)
         }
     }
+
+    override suspend fun getCharacter(id: Int): Character =
+        DataMapper.mapEntityToDomain(localDataSource.getCharacterById(id))
 }

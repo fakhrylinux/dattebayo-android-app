@@ -9,4 +9,7 @@ class DetailViewModel(private val characterUseCase: CharacterUseCase) : ViewMode
     fun setFavoriteCharacter(character: UiCharacter, newStatus: Boolean) {
         characterUseCase.setFavoriteCharacter(DataMapper.mapUiToDomain(character), newStatus)
     }
+
+    suspend fun getCharacter(characterId: Int): UiCharacter =
+        DataMapper.mapDomainToUiModelSingle(characterUseCase.getCharacter(characterId))
 }

@@ -25,8 +25,9 @@
             app:popUpTo="@id/characterFragment"
             app:popUpToInclusive="true" />
         <argument
-            android:name="character"
-            app:argType="id.biz.equatron.dattebayo.core.ui.model.UiCharacter" />
-        <deepLink app:uri="dattebayo://detail/{character}" />
+            android:name="characterId"
+            app:argType="string"
+            android:defaultValue="0" />
+        <deepLink app:uri="dattebayo://detail/{characterId}" />
     </fragment>
 </navigation>

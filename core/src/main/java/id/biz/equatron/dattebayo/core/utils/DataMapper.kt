@@ -33,6 +33,14 @@ object DataMapper {
             )
         }
 
+    fun mapEntityToDomain(input: CharacterEntity): Character = Character(
+        id = input.characterId,
+        name = input.name,
+        images = input.images,
+        jutsu = input.jutsu,
+        isFavorite = input.isFavorite
+    )
+
     fun mapDomainToEntity(input: Character) = CharacterEntity(
         characterId = input.id,
         name = input.name,
@@ -55,6 +63,14 @@ object DataMapper {
         }
         return characterList
     }
+
+    fun mapDomainToUiModelSingle(input: Character) = UiCharacter(
+        id = input.id,
+        name = input.name,
+        images = input.images,
+        jutsu = input.jutsu,
+        isFavorite = input.isFavorite,
+    )
 
     fun mapUiToDomain(input: UiCharacter) = Character(
         id = input.id,
