@@ -13,13 +13,14 @@ data class CharactersItem(
     @field:SerializedName("name")
     val name: String,
 
-	@field:SerializedName("personal.titles")
-	val personal: Personal,
+    @field:SerializedName("personal.titles")
+    val personal: Personal,
 
     @field:SerializedName("id")
     val id: Int,
-	@field:SerializedName("natureType")
-	val natureType: List<String>,
+
+    @field:SerializedName("natureType")
+    val natureType: List<String>,
 )
 
 data class Personal(
