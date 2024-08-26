@@ -22,4 +22,4 @@
 
 #-keep class id.biz.equatron.dattebayo.character.** { *; }
 #-keepclassmembers class id.biz.equatron.dattebayo.character.** { *; }
--keep public class * extends androidx.lifecycle.ViewModel {*;}
+#-keep public class * extends androidx.lifecycle.ViewModel {*;}
