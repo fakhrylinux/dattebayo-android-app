@@ -1,7 +1,9 @@
 package id.biz.equatron.dattebayo.core.data.source.remote.response
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
+@Keep
 data class CharactersItem(
 
     @field:SerializedName("images")
